@@ -35,9 +35,13 @@ export default function  () {
         );
     }
 }
+
   return (
+      
+
+      
    
-        
+        <div className='shadow-sm border-b sticky top-0 bg-white z-30'>
         <div className='flex items-center justify-between max-w-7xl mx-4 xl:mx-auto'>
             {/* Left */}
             <div className='cursor-pointer h-24 w-24 relative hidden lg:inline-grid'>
@@ -67,6 +71,8 @@ export default function  () {
                 <PlusCircleIcon className='h-6 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out'/>
                 <img src='https://pbs.twimg.com/profile_images/1416435456468729865/G578oM3C_400x400.jpg' alt='user-image' className='h-10 rounded-full cursor-pointer' />
             </div>
+            
+
             <header className='border-b border-gray-100 dark:border-gray-700'>
                 <div className='container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center'>
                     
@@ -75,6 +81,7 @@ export default function  () {
                     {renderThemeChanger()}
                     </div>
             </header>
+        </div>
         </div>
         
         
