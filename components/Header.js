@@ -7,11 +7,13 @@ import { HomeIcon } from '@heroicons/react/solid';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import {useRecoilState} from  "recoil";
 import { modalState } from '../atom/modalAtom';
+import { useRouter } from 'next/router';
 
 
 export default function Header () {
     const {data: session} = useSession();
     const [open, setOpen] = useRecoilState(modalState);
+    const router = useRouter();
 
  
   return ( 
@@ -23,6 +25,7 @@ export default function Header () {
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2560px-Instagram_logo.svg.png" 
                 layout='fill'
                 className='object-contain '
+                onClick={()=>router.push("/")}
                 />
             </div>
             <div className='cursor-pointer h-24 w-10 relative lg:hidden'>
@@ -30,6 +33,7 @@ export default function Header () {
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1025px-Instagram-Icon.png" 
                 layout='fill'
                 className='object-contain'
+                onClick={()=>router.push("/")}
                 />
             </div>
             {/* Middle */}
@@ -43,10 +47,10 @@ export default function Header () {
              {/* Right */}
 
             <div className='flex space-x-4 items-center'>
-                <HomeIcon className='hidden md:inline-flex h-6 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out'/>
+                <HomeIcon onClick={()=>router.push("/")} className='hidden md:inline-flex h-6 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out'/>
                 {session ? (
                     <>
-                <PlusCircleIcon onClick={()=>setOpen(true)} className='h-6 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out'/>
+                <PlusCircleIcon onClick={()=>setOpen(true  )} className='h-6 cursor-pointer hover:scale-125 transition-transform duration-200 ease-out'/>
                 <img
                   onClick={signOut}
                   src={session.user.image}
