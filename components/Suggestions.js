@@ -22,8 +22,8 @@ export default function Suggestions() {
         <button className="text-gray-600 font-semibold">Hepsini gör</button>
     </div>
 
-    {suggestions.map(suggestions =>(
-        <div className="flex items-center justify-between mt-3">
+    {suggestions.map(suggestion =>(
+        <div key={suggestion.id} className="flex items-center justify-between mt-3">
             <img className="h-10 rounded-full border p-[2px]" src= {`https://i.pravatar.cc/150?img=${Math.ceil(Math.random() * 70)}`} alt="" />
              <div className="flex-1 ml-4">
                 <h2 className="font-semibold text-sm">{suggestions.username}</h2>
